@@ -1,0 +1,5 @@
+
+# Core libs for this demo project
+apache-airflow==2.9.2
+requests==2.32.3
+python-dotenv==1.0.1

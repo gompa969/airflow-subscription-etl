@@ -1,0 +1,19 @@
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Airflow
+logs/
+airflow.db
+unittests.cfg
+
+# OS files
+.DS_Store
+Thumbs.db

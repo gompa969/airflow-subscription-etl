@@ -1,5 +1,8 @@
+# Core Airflow version (use constraints for compatibility)
+apache-airflow==2.10.3
 
-# Core libs for this demo project
-apache-airflow==2.9.2
-requests==2.32.3
+# Extras (operators/hooks for common services, safe to include)
+apache-airflow-providers-standard==1.6.0
+
+# Utilities
 python-dotenv==1.0.1

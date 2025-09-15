@@ -1,61 +1,68 @@
-
 # Subscription Workflow Orchestration with Apache Airflow (Portfolio Demo)
 
-This project simulates a real-world **subscription lifecycle** using **Apache Airflow**. The DAG demonstrates
-**branching workflows**, **ETL-style tasks**, **upgrade/downgrade pricing logic**, and **user notifications** using
-**mocked data** (no confidential company code or secrets). Perfect for showcasing **Data Engineer / Business Systems Analyst** skills.
+This project simulates a real-world **subscription lifecycle** using **Apache Airflow**.  
+It demonstrates **branching workflows**, **ETL-style tasks**, **upgrade/downgrade pricing logic**, and **user notifications** using **mocked JSON data** (no confidential code or secrets).  
 
-## ✨ What it shows
-- Intent routing: `create`, `change`, `cancel`, `view`
-- Branching with `BranchPythonOperator`
-- Reading/writing JSON as stand-in for APIs/DBs
-- Upgrade/downgrade price difference calculation
-- Simulated payment + notifications (no external calls)
-- XCom usage and clear task dependencies
+✅ Perfect for showcasing **Data Engineer** and **Business Systems Analyst** skills in workflow orchestration.
 
-## 🧱 Project structure
-```
+---
+
+## ✨ Highlights
+- **Intent-based routing**: `create`, `change`, `cancel`, `view`
+- **Branching** with `BranchPythonOperator`
+- **ETL-style I/O**: JSON files as stand-ins for APIs/DBs
+- **Upgrade/downgrade logic**: price difference calculation
+- **Simulated payments** + notifications (no external calls)
+- **XCom usage** for passing state between tasks
+- **Clear dependency graph** for each subscription path
+
+---
+
+## 🧱 Project Structure
 airflow-subscription-etl/
 ├─ dags/
-│  └─ subscription_flow.py
+│  └─ subscription_flow_demo.py   # Main DAG
 ├─ data/
-│  ├─ plans.json
-│  └─ user_subscriptions.json
-├─ .env.example
+│  ├─ plans.json                  # Mock plan catalog
+│  └─ user_subscriptions.json     # Mock subscription records
 ├─ .gitignore
 ├─ requirements.txt
 └─ README.md
-```
+---
 
-## 🚀 How to run locally (quick demo)
-> Airflow is usually run via Docker or a managed environment. For a quick portfolio, you can simply show the code,
-> graph view screenshots, and README. If you want to run it:
+## 🚀 How to Run
 
-### Option A: Docker Compose (recommended if you already use Docker)
-Use the official Airflow docker-compose template and mount this repo's `dags/` into the container.
-Docs: https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
+> Airflow is typically deployed via **Docker** or in a **managed service**.  
+> For portfolio/demo purposes, you can either run it locally or just showcase the DAG code and screenshots.
 
-### Option B: Local install (advanced users)
-Airflow requires constraints. Example (Linux/macOS):
+### Option A: Docker Compose (recommended)
+Use the official Airflow docker-compose template and mount this repo’s `dags/` folder.  
+📖 Docs: [Airflow + Docker Compose](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html)
+
+### Option B: Local Install (advanced)
+Airflow requires pinned constraints. Example setup (Linux/macOS):
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-export AIRFLOW_VERSION=2.9.2
+# Create environment
+python3 -m venv .venv && source .venv/bin/activate
+export AIRFLOW_VERSION=2.10.3
 export PYTHON_VERSION=$(python -c "import sys; print('.'.join(map(str, sys.version_info[:2])))")
-pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+
+# Install Airflow with constraints
+pip install "apache-airflow==${AIRFLOW_VERSION}" \
+  --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+
+# Install extras
 pip install -r requirements.txt
+
+# Set Airflow home
 export AIRFLOW_HOME=$(pwd)
-airflow db init
-airflow users create --role Admin --username admin --password admin --firstname Admin --lastname User --email admin@example.com
+
+# Initialize database & create user
+airflow db migrate
+airflow users create --role Admin --username admin --password 1431 \
+  --firstname Admin --lastname User --email admin@example.com
+
+# Start services
 airflow webserver --port 8080 &
 airflow scheduler
-```
-
-Then copy this repo into `$AIRFLOW_HOME/dags` or set `dags_folder` to this repo's `dags/`.
-
-## 🔐 No secrets policy
-This repo uses **mock JSON files** and **environment variables** (see `.env.example`). Do **not** commit real API keys or credentials.
-
-## 📝 Notes for recruiters
-This is a **simulated** but realistic orchestration project based on common subscription flows (create/change/cancel/view),
-implemented in Airflow to demonstrate data engineering and business-systems thinking.

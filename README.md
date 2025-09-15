@@ -19,6 +19,7 @@ It demonstrates **branching workflows**, **ETL-style tasks**, **upgrade/downgrad
 ---
 
 ## 🧱 Project Structure
+```
 airflow-subscription-etl/
 ├─ dags/
 │  └─ subscription_flow_demo.py   # Main DAG
@@ -30,6 +31,7 @@ airflow-subscription-etl/
 ├─ .gitignore
 ├─ requirements.txt
 └─ README.md
+```
 ---
 
 ## 🚀 How to Run
@@ -68,14 +70,16 @@ airflow users create --role Admin --username admin --password 1431 \
 # Start services
 airflow webserver --port 8080 &
 airflow scheduler
+```
+---
 ## 📸 Demo Screenshots
 
 ### DAG Graph
 Shows the branching workflow for `create`, `change`, `cancel`, and `view`.
 
-![DAG Graph](docs/screens/dag_graph.png)
+![DAG Graph](./docs/screens/dag_graph.png)
 
 ### Notification Logs
 Example log output from the final task.
 
-![Notify Logs](docs/screens/notify_logs.png)
+![Notify Logs](./docs/screens/notify_logs.png)

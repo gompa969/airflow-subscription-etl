@@ -1,4 +1,6 @@
+# --------------------
 # Python
+# --------------------
 __pycache__/
 *.pyc
 *.pyo
@@ -9,29 +11,44 @@ __pycache__/
 .env
 .env.*
 
-# Airflow
+# --------------------
+# Airflow (runtime files)
+# --------------------
 airflow.db
 airflow.cfg
 unittests.cfg
 logs/
-dags/__pycache__/
+.dags/__pycache__/
+.airflow/
+airflow-webserver.pid
+standalone_admin_password.txt
+webserver_config.py
 
+# --------------------
 # OS / IDE
+# --------------------
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
 
-# Jupyter / notebooks (if used later)
+# --------------------
+# Jupyter / notebooks
+# --------------------
 .ipynb_checkpoints/
 *.ipynb
 
-# Data files (keep only mock JSONs you want in GitHub)
+# --------------------
+# Data files
+# --------------------
+# Keep only mock JSONs in data/ folder
 *.csv
 *.parquet
 *.sqlite
 *.db
 
-# Virtual environments
-venv/
-ENV/
+# --------------------
+# Node / npm (if created accidentally)
+# --------------------
+node_modules/
+package-lock.json

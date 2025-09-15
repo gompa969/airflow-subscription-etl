@@ -1,26 +1,5 @@
 [
-  {
-    "subscription_plan_id": 1,
-    "subscription_plan_name": "Basic",
-    "subscription_price": 0,
-    "subscription_plan_start_date": "2025-01-01",
-    "subscription_plan_end_date": "2025-12-31",
-    "subscription_plan_type": "Free"
-  },
-  {
-    "subscription_plan_id": 2,
-    "subscription_plan_name": "Pro",
-    "subscription_price": 25,
-    "subscription_plan_start_date": "2025-01-01",
-    "subscription_plan_end_date": "2025-12-31",
-    "subscription_plan_type": "Paid"
-  },
-  {
-    "subscription_plan_id": 3,
-    "subscription_plan_name": "Enterprise",
-    "subscription_price": 50,
-    "subscription_plan_start_date": "2025-01-01",
-    "subscription_plan_end_date": "2025-12-31",
-    "subscription_plan_type": "Paid"
-  }
+  {"subscription_plan_id": 1, "subscription_plan_name": "Free", "subscription_price": 0, "subscription_plan_start_date": "2025-01-01", "subscription_plan_end_date": "2025-12-31"},
+  {"subscription_plan_id": 2, "subscription_plan_name": "Pro",  "subscription_price": 29, "subscription_plan_start_date": "2025-01-01", "subscription_plan_end_date": "2025-12-31"},
+  {"subscription_plan_id": 3, "subscription_plan_name": "Team", "subscription_price": 99, "subscription_plan_start_date": "2025-01-01", "subscription_plan_end_date": "2025-12-31"}
 ]

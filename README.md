@@ -25,6 +25,8 @@ airflow-subscription-etl/
 ├─ data/
 │  ├─ plans.json                  # Mock plan catalog
 │  └─ user_subscriptions.json     # Mock subscription records
+├─ docs/
+│  └─ screens/                    # Demo screenshots
 ├─ .gitignore
 ├─ requirements.txt
 └─ README.md
